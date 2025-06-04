@@ -47,12 +47,19 @@ This AI-powered analyzer helps you:
 ## ✅ Evaluation Metrics
 
 Metric	Description
+
 📄 PDF Extraction Accuracy	Measures how well the system extracts text from various UPI PhonePe PDF formats (iphone vs android)
+
 📊 Transaction Structuring Completeness	Checks the integrity and completeness of fields like Date, Amount, Receiver, Time, Category
+
 💡 LLM Insight Relevance	Evaluates the usefulness and accuracy of AI-generated financial advice (via human feedback)
+
 ⏱️ Response Time	Measures how quickly the system generates insights and previews after uploading
+
 👍 User Satisfaction	Assessed via qualitative feedback and usability of insights provided
+
 🧠 Category Detection Accuracy	Accuracy of categorizing merchants (e.g., Food, Retail, Transport) from transaction descriptions
+
 🔄 Repeatability	Whether similar inputs produce stable and reproducible outputs
 
 
@@ -69,7 +76,7 @@ Metric	Description
 
 ## 📽️ Demo
 
-📺 **Watch the demo video** here: [Video Demo](video_demoa)  
+📺 **Watch the demo video** here: [Video Demo](video_demo)  
 🌐 **Try it live on Hugging Face**: [PhonePe-UPI-Usage-and-Financial-Analyzer](https://huggingface.co/spaces/Hemaperumal/PhonePe-UPI-Usage-and-Financial-Analyzer)
 
 ---
