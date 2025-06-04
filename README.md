@@ -77,7 +77,7 @@ Metric	Description
 
 ## 📽️ Demo
 
-📺 **Watch the demo video** here: [Video Demo](video_demo.mp4)  
+📺 **Watch the demo video** here: [Video Demo](PhonePe-UPI-Usage-and-Financial-Analyzer/video_demo.mp4)  
 🌐 **Try it live on Hugging Face**: [PhonePe-UPI-Usage-and-Financial-Analyzer](https://huggingface.co/spaces/Hemaperumal/PhonePe-UPI-Usage-and-Financial-Analyzer)
 
 ---
