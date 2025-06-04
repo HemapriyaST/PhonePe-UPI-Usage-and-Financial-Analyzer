@@ -1,117 +1,47 @@
-# PhonePe-UPI-Usage-and-Financial-Analyzer
-**💸 Personal UPI Usage and Financial Analyzer using LLMs**
+# 💸 PhonePe-UPI-Usage-and-Financial-Analyzer
 
-**📊 Track, Analyze & Optimize Your UPI Transactions with AI**
+📊 **Track, Analyze & Optimize Your UPI Transactions with AI**
 
-🔗 Live Demo
-🎥 Video Walkthrough: Watch on YouTube
-🌐 Try it Live: PhonePe UPI Usage and Financial Analyzer
+🔗 **Live Demo**: [Try it on Hugging Face Spaces](https://huggingface.co/spaces/Hemaperumal/PhonePe-UPI-Usage-and-Financial-Analyzer)  
+🎥 **Video Walkthrough**: [Watch on YouTube](./demo.mp4) *(Replace with actual YouTube link or upload `demo.mp4`)*
 
-🔍 Overview
-This project is an AI-powered personal finance assistant that extracts and analyzes UPI transaction statements (PDFs) from platforms like Paytm, GPay, and PhonePe. Leveraging Large Language Models (LLMs) and NLP techniques, it provides personalized financial insights, budget recommendations, and savings suggestions—all from your real UPI data.
+## 🔍 Overview
 
-🚀 Features
-✅ Extract transaction data from PDF statements
-✅ Categorize spendings automatically using merchant data
-✅ Generate intelligent financial summaries using LLaMA3
-✅ Export structured CSV data
-✅ Responsive UI built with Gradio
-✅ Deployed on Hugging Face Spaces
+**PhonePe-UPI-Usage-and-Financial-Analyzer** is an AI-powered personal finance assistant that extracts and analyzes UPI transaction statements (PDFs) from platforms like **PhonePe**, **Paytm**, and **GPay**. It uses **Large Language Models (LLMs)** to deliver actionable financial insights, monthly reports, savings suggestions, and budget optimization—all from your actual UPI transaction data.
 
-🧠 Powered By
-LLMs (LLaMA3 via Groq API)
 
-PyMuPDF for PDF parsing
+## 🚀 Features
 
-Pandas for data processing
+✅ Extract transaction data from PDF statements  
+✅ Auto-categorize spending based on merchant data  
+✅ Generate intelligent financial summaries using **LLaMA3**  
+✅ Download structured CSV of transactions  
+✅ Responsive and interactive UI built with **Gradio**  
+✅ Hosted and available on **Hugging Face Spaces**
 
-Gradio for interactive frontend
+---
 
-Groq API for lightning-fast inference
+## 🧠 Powered By
 
-🖼️ Demo UI
-<!-- Replace with actual screenshot URL -->
+- **LLMs (LLaMA3)** via **Groq API** for AI analysis
+- **PyMuPDF** for fast and accurate PDF parsing
+- **Pandas** for cleaning and structuring transaction data
+- **Gradio** for building a modern, user-friendly interface
 
-🏗️ Project Architecture
-mermaid
-Copy
-Edit
-graph LR
-A[User Uploads UPI PDF] --> B[PDF Text Extraction (PyMuPDF)]
-B --> C[Transaction Structuring (Regex + Pandas)]
-C --> D[Categorization Engine (Merchant Mapping)]
-D --> E[LLM Analysis with Prompt Engineering]
-E --> F[Gradio UI Output: Insights + CSV]
-🧾 Sample Insight Output
-markdown
-Copy
-Edit
-**Financial Insights for John Doe**
+---
 
-- **Monthly Income**: ₹25,000
-- **Expenses**: ₹18,500
-- **Top Spending Category**: Food Delivery (₹5,200)
-- **Savings Rate**: 26%
-- **Recommendation**: Reduce ordering from Swiggy/Zomato by 30%.
-📂 Folder Structure
-bash
-Copy
-Edit
-📁 final_project/
-├── final_project_code.py      # Main logic + Gradio app
-├── README.md                  # You're here!
-├── requirements.txt           # Dependencies
-💡 How to Run Locally
-bash
-Copy
-Edit
-# Step 1: Clone the repo
-git clone https://github.com/your-username/upi-finance-analyzer.git
-cd upi-finance-analyzer
+## 🛠 How to Use
 
-# Step 2: Install dependencies
+1. **Upload** your UPI statement in PDF format (PhonePe, Paytm, or GPay)
+2. **Preview** all extracted transactions in a table
+3. **Analyze with AI** to get a comprehensive financial report
+4. **Download** the CSV for personal use or backup
+
+---
+
+## 📦 Setup Instructions (Local)
+
+```bash
+git clone https://github.com/your-username/PhonePe-UPI-Usage-and-Financial-Analyzer.git
+cd PhonePe-UPI-Usage-and-Financial-Analyzer
 pip install -r requirements.txt
-
-# Step 3: Add your Groq API Key
-# In final_project_code.py, replace:
-groq_api_key = "Your_Groq_API_KEY"
-
-# Step 4: Run the app
-python final_project_code.py
-🌐 Deployment
-✅ Hosted live on Hugging Face Spaces:
-👉 PhonePe UPI Usage and Financial Analyzer
-
-📦 Requirements
-txt
-Copy
-Edit
-pymupdf
-gradio
-openai
-groq
-pandas
-
-🔬 Evaluation Metrics
-✅ PDF parsing accuracy
-
-✅ Categorization correctness
-
-✅ LLM recommendation quality
-
-✅ Insight generation speed
-
-✅ User satisfaction
-
-📈 Skills Demonstrated
-✅ PDF Data Extraction
-
-✅ LLM Prompt Engineering
-
-✅ Data Structuring with Pandas
-
-✅ Gradio UI Development
-
-✅ FinTech & Budgeting Insight Generation
-
-✅ Hugging Face Spaces Deployment
