@@ -112,7 +112,7 @@ Metric	Description
 
 ├── README.md                    # Project overview
 
-├── assets/app_screenshot.png    # Screenshot of the UI
+├── LiveApp.txt                  # Snip and URL of App from Hugging Face
 
 ├── demo_video.mp4               # (Optional) Demo walkthrough
 
