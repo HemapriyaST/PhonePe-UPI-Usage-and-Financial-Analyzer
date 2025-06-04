@@ -77,7 +77,7 @@ Metric	Description
 
 ## 📽️ Demo
 
-📺 **Watch the demo video** here: [Video Demo](video_demo.mp4)  
+📺 **Watch the demo video** here: [Video Demo](Demo_video.mp4)  
 🌐 **Try it live on Hugging Face**: [PhonePe-UPI-Usage-and-Financial-Analyzer](https://huggingface.co/spaces/Hemaperumal/PhonePe-UPI-Usage-and-Financial-Analyzer)
 
 ---
@@ -110,16 +110,23 @@ Edit
 📦 PhonePe-UPI-Usage-and-Financial-Analyzer
 │
 ├── final_project_code.py        # Main application logic
+
 ├── README.md                    # Project overview
+
 ├── assets/app_screenshot.png    # Screenshot of the UI
+
 ├── demo_video.mp4               # (Optional) Demo walkthrough
+
 
 ---------
 
 ## 📈 Project Impact
 ✅ Improves personal financial awareness
+
 ✅ Saves users from overspending
+
 ✅ Converts raw UPI data into smart suggestions
+
 ✅ Makes financial analysis easy for everyone
 
 ------
