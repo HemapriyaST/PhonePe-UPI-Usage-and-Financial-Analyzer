@@ -104,11 +104,10 @@ Metric	Description
 ---
 
 ## 📁 Project Structure
-bash
-Copy
-Edit
+
 📦 PhonePe-UPI-Usage-and-Financial-Analyzer
-│
+
+
 ├── final_project_code.py        # Main application logic
 
 ├── README.md                    # Project overview
@@ -144,7 +143,6 @@ We welcome your feedback, feature suggestions, and contributions to make this to
 
 ## 🙋‍♂️ About the Creator
 Created with passion by Hemaperumal
-🔗 View the Live App on Hugging Face
 
 If this project helped you take control of your spending or just inspired your next build—I'd love to hear from you!
 
