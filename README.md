@@ -44,7 +44,8 @@ This AI-powered analyzer helps you:
 
 ---
 
-✅ Evaluation Metrics
+## ✅ Evaluation Metrics
+
 Metric	Description
 📄 PDF Extraction Accuracy	Measures how well the system extracts text from various UPI PhonePe PDF formats (iphone vs android)
 📊 Transaction Structuring Completeness	Checks the integrity and completeness of fields like Date, Amount, Receiver, Time, Category
@@ -94,15 +95,6 @@ Metric	Description
 
 ---
 
-## 📦 Installation (Optional for Local Use)
-
-```bash
-pip install pymupdf gradio openai groq pandas
-python final_project_code.py
-
-
---------
-
 ## 📁 Project Structure
 bash
 Copy
@@ -122,6 +114,7 @@ Edit
 ✅ Converts raw UPI data into smart suggestions
 ✅ Makes financial analysis easy for everyone
 
+------
 
 ##  📢 Feedback & Contributions
 We welcome your feedback, feature suggestions, and contributions to make this tool even better. Whether it’s improving the categorization logic, enhancing the LLM prompts, or adding new dashboard features—every input counts!
@@ -131,6 +124,8 @@ We welcome your feedback, feature suggestions, and contributions to make this to
 🌟 Enjoyed using the app? Please star the repository!
 
 🤝 Want to contribute? Fork the repo and send a pull request
+
+-------
 
 ## 🙋‍♂️ About the Creator
 Created with passion by Hemaperumal
