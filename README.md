@@ -3,7 +3,7 @@
 📊 **Track, Analyze & Optimize Your UPI Transactions with AI**
 
 🔗 **Live Demo**: [Try it on Hugging Face Spaces](https://huggingface.co/spaces/Hemaperumal/PhonePe-UPI-Usage-and-Financial-Analyzer)  
-🎥 **Video Walkthrough**: [Watch on YouTube](./demo.mp4) *(Replace with actual YouTube link or upload `demo.mp4`)*
+🎥 **Video Walkthrough**: (PhonePe-UPI-Usage-and-Financial-Analyzer/ video demo.mp4) *(Replace with actual YouTube link or upload `demo.mp4`)*
 
 ## 🔍 Overview
 
