@@ -9,16 +9,17 @@ import pandas as pd
 groq_api_key = "Your_Groq_API_KEY"
 client = Groq(api_key=groq_api_key)
 
-def extract_text_from_pdf(file):  
-    """Extract full text using pdfplumber."""
+# Open PDF function
+def extract_text_from_pdf(file):
     text = ""
-    with pdfplumber.open(file.name) as pdf:
-        for page in pdf.pages:
-            page_text = page.extract_text()
-            if page_text:
-                text += page_text + "\n"
+    doc = fitz.open(file.name)
+    for page in doc:
+        page_text = page.get_text("text")
+        if page_text:
+            text += page_text + "\n"
     return text.strip()
 
+# Extract from PDF function
 def extract_transactions_from_pdf(file):
     merchant_to_category = {
         "Reliance Retail Ltd": "Retail",
@@ -144,6 +145,7 @@ def extract_transactions_from_pdf(file):
     df = df[["Date", "Time", "Receiver", "Amount (₹)", "Type", "Transaction Count", "Category"]]
     return df
 
+# Function to download Transcation PDF file
 def export_transactions_to_csv(file):
     import tempfile
     df = extract_transactions_from_pdf(file)
@@ -151,6 +153,7 @@ def export_transactions_to_csv(file):
     df.to_csv(temp.name, index=False)
     return temp.name
 
+# Analyzer function with LLama3 model
 def analyze_financial_data(pdf_file):
     """Analyze full text for financial insights using LLaMA3."""
     if not pdf_file:
@@ -260,6 +263,7 @@ def analyze_financial_data(pdf_file):
 
     return chat_completion.choices[0].message.content
 
+#Interactive UI via Gradio
 import gradio as gr
 
 with gr.Blocks(title="💰 Personal Finance Assistant") as demo:
