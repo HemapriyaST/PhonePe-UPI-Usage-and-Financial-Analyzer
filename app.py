@@ -294,7 +294,7 @@ with gr.Blocks(title="💰 Personal Finance Assistant") as demo:
     </style>
     """)
 
-    gr.Markdown("## 💰 AI-Powered Financial Advisor")
+    gr.Markdown("## 💸 FinanceGenie AI")
     gr.Markdown("Upload your PhonePe Transaction history to get financial insights and preview your transactions.")
     # ✅ PDF upload instructions
 
