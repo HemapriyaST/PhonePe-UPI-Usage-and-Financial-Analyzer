@@ -2,6 +2,11 @@
 
 📊 **Track, Analyze & Optimize Your UPI Transactions with AI**
 
+
+## 🧠 Problem Statement
+
+> **Goal:** Build an AI-driven application that parses UPI PDF statements and delivers meaningful financial advice.
+
 ## 🔍 Overview
 
 Are you struggling to make sense of your UPI transactions on **PhonePe**?
@@ -19,10 +24,6 @@ This AI-powered analyzer helps you:
 ![image](https://github.com/user-attachments/assets/d17925f9-6c4c-4d2f-9f4b-8e4f3f581dbd)
 
 -----
-
-## 🧠 Problem Statement
-
-> **Goal:** Build an AI-driven application that parses UPI PDF statements and delivers meaningful financial advice.
 
 ### 🧩 Key Capabilities:
 - Combine statements from Paytm, GPay, PhonePe
@@ -76,7 +77,7 @@ Metric	Description
 
 ## 📽️ Demo
 
-📺 **Watch the demo video** here: [Video Demo](video_demo)  
+📺 **Watch the demo video** here: [Video Demo](video_demo.mp4)  
 🌐 **Try it live on Hugging Face**: [PhonePe-UPI-Usage-and-Financial-Analyzer](https://huggingface.co/spaces/Hemaperumal/PhonePe-UPI-Usage-and-Financial-Analyzer)
 
 ---
