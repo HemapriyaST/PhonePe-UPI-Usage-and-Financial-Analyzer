@@ -6,7 +6,7 @@ import re
 import pandas as pd
 
 # OpenAI or Groq API setup
-groq_api_key = "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"
+groq_api_key = "your_Groq_API_Key"
 client = Groq(api_key=groq_api_key)
 
 def extract_text_from_pdf(file):
