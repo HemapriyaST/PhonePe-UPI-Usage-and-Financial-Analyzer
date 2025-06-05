@@ -1,4 +1,4 @@
-# 💸 PhonePe-UPI-Usage-and-Financial-Analyzer
+# 💸 UPI-Usage-and-Financial-Analyzer
 
 📊 **Track, Analyze & Optimize Your UPI Transactions with AI**
 
@@ -9,7 +9,7 @@
 
 ## 🔍 Overview
 
-Are you struggling to make sense of your UPI transactions on **PhonePe**?
+Are you struggling to make sense of your **UPI transactions** on **Paytm/ Gpay /PhonePe**?
 
 This AI-powered analyzer helps you:
 - 🧾 Extract transaction data from messy PDF statements
@@ -37,6 +37,7 @@ This AI-powered analyzer helps you:
 
 | Feature | Description |
 |--------|-------------|
+|✅  Multi-app integration for seamless UPI tracking |
 | 📂 PDF Upload | Upload your UPI PDF statements (PhonePe supported) |
 | 📋 Transaction Table | View structured and categorized transactions |
 | 📈 AI Insights | Receive personalized reports using LLaMA3 |
@@ -49,7 +50,7 @@ This AI-powered analyzer helps you:
 
 Metric	Description
 
-📄 PDF Extraction Accuracy	Measures how well the system extracts text from various UPI PhonePe PDF formats (iphone vs android)
+📄 PDF Extraction Accuracy	Measures how well the system extracts text from various UPI  PDF formats PhonePe(iphone vs android) / Paytm.
 
 📊 Transaction Structuring Completeness	Checks the integrity and completeness of fields like Date, Amount, Receiver, Time, Category
 
@@ -84,7 +85,7 @@ Metric	Description
 
 ## 🚀 How It Works
 
-1. **Upload** your PhonePe PDF statement
+1. **Upload** your UPI statement in PDF **Paytm/ Gpay/ PhonePe**
 2. Click **👁️ Transactions** to view your extracted and categorized spending
 3. Click **🔍 Analyze with AI** to receive personalized financial suggestions
 4. Export your structured data as a **CSV** for future use
@@ -105,7 +106,7 @@ Metric	Description
 
 ## 📁 Project Structure
 
-📦 PhonePe-UPI-Usage-and-Financial-Analyzer
+📦 UPI-Usage-and-Financial-Analyzer
 
 
 ├── final_project_code.py        # Main application logic
@@ -120,6 +121,7 @@ Metric	Description
 ---------
 
 ## 📈 Project Impact
+
 ✅ Improves personal financial awareness
 
 ✅ Saves users from overspending
