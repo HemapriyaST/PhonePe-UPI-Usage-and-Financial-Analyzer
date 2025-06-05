@@ -21,7 +21,8 @@ This AI-powered analyzer helps you:
 
 ## 🖼️ App Interface Preview
 
-![image](https://github.com/user-attachments/assets/d17925f9-6c4c-4d2f-9f4b-8e4f3f581dbd)
+![image](https://github.com/user-attachments/assets/53c241e0-0278-4cb1-a657-160050d0745b)
+
 
 -----
 
@@ -38,7 +39,7 @@ This AI-powered analyzer helps you:
 | Feature | Description |
 |--------|-------------|
 |✅  Multi-app integration for seamless UPI tracking |
-| 📂 PDF Upload | Upload your UPI PDF statements (PhonePe supported) |
+| 📂 PDF Upload | Upload your UPI PDF statements (PhonePe / Paytm) |
 | 📋 Transaction Table | View structured and categorized transactions |
 | 📈 AI Insights | Receive personalized reports using LLaMA3 |
 | 📤 CSV Export | Download your transaction data |
@@ -50,7 +51,7 @@ This AI-powered analyzer helps you:
 
 Metric	Description
 
-📄 PDF Extraction Accuracy	Measures how well the system extracts text from various UPI  PDF formats PhonePe(iphone vs android) / Paytm.
+📄 PDF Extraction Accuracy	Measures how well the system extracts text from various UPI PDF formats PhonePe(iphone vs android) / Paytm.
 
 📊 Transaction Structuring Completeness	Checks the integrity and completeness of fields like Date, Amount, Receiver, Time, Category
 
