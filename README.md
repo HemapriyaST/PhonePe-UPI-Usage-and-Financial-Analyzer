@@ -21,7 +21,7 @@ This AI-powered analyzer helps you:
 
 ## 🖼️ App Interface Preview
 
-![image](https://github.com/user-attachments/assets/53c241e0-0278-4cb1-a657-160050d0745b)
+![image](https://github.com/user-attachments/assets/6c15471e-d96d-4e26-a486-a974c8692cb9)
 
 
 -----
@@ -80,7 +80,7 @@ Metric	Description
 ## 📽️ Demo
 
 📺 **Watch the demo video** here: [Video Demo](Demo_video.mp4)  
-🌐 **Try it live on Hugging Face**: [PhonePe-UPI-Usage-and-Financial-Analyzer](https://huggingface.co/spaces/Hemaperumal/PhonePe-UPI-Usage-and-Financial-Analyzer)
+🌐 **Try it live on Hugging Face**: [UPI-Usage-and-Financial-Analyzer](https://huggingface.co/spaces/Hemaperumal/UPI-Usage-and-Financial-Analyzer)
 
 ---
 
