@@ -1,15 +1,14 @@
 import os
 import fitz  # PyMuPDF
 import gradio as gr
-from groq import Groq # LLM API Intergration
+from groq import Groq
 import re
 import pandas as pd
 
 # OpenAI or Groq API setup
-groq_api_key = "Your_Groq_API_KEY"
+groq_api_key = "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"
 client = Groq(api_key=groq_api_key)
 
-# Open PDF function
 def extract_text_from_pdf(file):
     text = ""
     doc = fitz.open(file.name)
@@ -19,7 +18,7 @@ def extract_text_from_pdf(file):
             text += page_text + "\n"
     return text.strip()
 
-# Extract from PDF function
+
 def extract_transactions_from_pdf(file):
     merchant_to_category = {
         "Reliance Retail Ltd": "Retail",
@@ -35,6 +34,14 @@ def extract_transactions_from_pdf(file):
         "Sandwich": "Food",
         "Hotel": "Food",
         "Cafe": "Food",
+        "Technology" : "Technology",
+        "Education": "Education",
+        "college" : "Education",
+        "Health": "Health",
+        "Doctor": "Health",
+        "Hospital": "Health",
+        "Pharmacy": "Health",
+        "Guvi" : "Technology",
         "HOT COOL": "Food",
         "Uber": "Ridesharing / Transport",
         "Ola": "Ridesharing / Transport",
@@ -84,12 +91,14 @@ def extract_transactions_from_pdf(file):
     }
 
     doc = fitz.open(file.name)
-    full_text = "\n".join(page.get_text("text") for page in doc)
 
-    # Extract all matching amounts once
-    raw_amounts = re.findall(r'(?:INR|₹)\s*([\d,]+\.?\d*)', full_text, re.IGNORECASE)
+    # 🔽 Extract all signed amounts in order from the entire document
+    full_text = "\n".join(page.get_text("text") for page in doc)
+    # Extract all matching amounts once, including Rs., ₹, INR with optional +/-
+    amount_pattern = re.compile(r'(?:[+-]?\s*(?:Rs\.?|₹|INR)\s*([\d,]+(?:\.\d{1,2})?))', re.IGNORECASE)
+    raw_amounts = amount_pattern.findall(full_text)
     cleaned_amounts = [amt.replace(',', '') for amt in raw_amounts]
-    amount_index = 0  # index for tracking used amounts
+    amount_index = 0
 
     current_date = ""
     for page in doc:
@@ -104,7 +113,9 @@ def extract_transactions_from_pdf(file):
                 time_value = f"{hour}:{minute} {meridiem}".strip()
                 all_times.append(time_value)
 
-            date_match = re.search(r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2},?\s+\d{4}\b", line, re.IGNORECASE)
+            date_match = re.search(
+                r"\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\s+\d{1,2},?\s*\d{4}|\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec))\b",
+                line, re.IGNORECASE)
             if date_match:
                 current_date = date_match.group(0).strip()
 
@@ -112,7 +123,7 @@ def extract_transactions_from_pdf(file):
             if matched_keyword:
                 category = keywords[matched_keyword]
 
-                # Pull next unused amount
+                # 🔽 Pull next unused amount (signed)
                 amount = ""
                 if amount_index < len(cleaned_amounts):
                     amount = cleaned_amounts[amount_index]
@@ -139,13 +150,12 @@ def extract_transactions_from_pdf(file):
         all_times += [last_time] * (len(df) - len(all_times))
 
     df["Time"] = all_times[:len(df)]
-    df["Transaction Count"] = df["Receiver"].apply(lambda r: df["Receiver"].value_counts().get(r, 1))
     df["Category"] = df["Receiver"].apply(categorize_transaction)
 
-    df = df[["Date", "Time", "Receiver", "Amount (₹)", "Type", "Transaction Count", "Category"]]
+    df = df[["Date", "Time", "Receiver", "Amount (₹)", "Type", "Category"]]
     return df
 
-# Function to download Transcation PDF file
+
 def export_transactions_to_csv(file):
     import tempfile
     df = extract_transactions_from_pdf(file)
@@ -153,7 +163,6 @@ def export_transactions_to_csv(file):
     df.to_csv(temp.name, index=False)
     return temp.name
 
-# Analyzer function with LLama3 model
 def analyze_financial_data(pdf_file):
     """Analyze full text for financial insights using LLaMA3."""
     if not pdf_file:
@@ -165,87 +174,67 @@ def analyze_financial_data(pdf_file):
 
     prompt = f"""
       Analyze the following Paytm transaction history and generate financial insights:
-
       {extracted_text}
-
       Provide a detailed breakdown in the following format:
-
       **Financial Insights for [User Name]**
-
       **Key Details:**
-
       - **Overall Monthly Income & Expenses:**
         - Month: [Month]
         - Income: ₹[Amount]
         - Expenses: ₹[Amount]
-
       - **Unnecessary Expenses Analysis:**
         - Expense Category: [Category Name]
         - Amount: ₹[Amount]
         - Recommendation: [Suggestion]
-
       - **Savings Percentage Calculation:**
         - Savings Percentage: [Percentage] %
-
       - **Expense Trend Analysis:**
         - Notable Trends: [Trend Details]
-
       - **Cost Control Recommendations:**
         - Suggestion: [Detailed Suggestion]
-
       - **Category-Wise Spending Breakdown:**
         - Category: [Category Name] - ₹[Amount]
         - Percentage: [Percentage] %
-
       - **Frequent Receiver or Payees:**
         - Merchant: [Name]
         - No. of Transactions: [Count]
         - Total Spent: ₹[Amount]
-
       - **Monthly Cash Flow Overview:**
         - Opening Balance: ₹[Amount]
         - Total Inflow: ₹[Amount]
         - Total Outflow: ₹[Amount]
         - Closing Balance: ₹[Amount]
-
       - **Late-Night or Odd-Hour Transactions:**
         - No. of Transactions: [Count]
         - Total Amount: ₹[Amount]
         - Observations: [Behavioral Insights]
-
       - **Recurring Payments and Subscriptions:**
         - Service: [Service Name]
         - Frequency: [Monthly/Weekly/etc.]
         - Amount: ₹[Amount]
         - Actionable Advice: [Keep/Cancel]
-
       - **Top 5 Expense Categories (by Spend):**
         - 1. [Category] - ₹[Amount]
         - 2. [Category] - ₹[Amount]
         - 3. [Category] - ₹[Amount]
         - 4. [Category] - ₹[Amount]
         - 5. [Category] - ₹[Amount]
-
       - **One-Time Large Transactions:**
         - Description: [Details]
         - Amount: ₹[Amount]
         - Justification Check: [Necessary/Optional]
-
       - **Spending vs. Previous Month Comparison:**
         - Income Change: [+/- ₹Amount]
         - Expense Change: [+/- ₹Amount]
         - Savings Trend: [Up/Down %]
-
       - **Top Payment Methods Used:**
         - Method: [Wallet/UPI/Card/etc.]
         - Transactions: [Count]
         - Total Value: ₹[Amount]
-
       - **Potential Fraud or Suspicious Activities:**
         - Transaction(s): [Details]
         - Reason for Flag: [Explanation]
         - Suggested Action: [Monitor/Report/Ignore]
-
       - **Financial Health Score (Out of 100):**
         - Score: [Score]
         - Rating: [Excellent/Good/Fair/Poor]
@@ -263,7 +252,6 @@ def analyze_financial_data(pdf_file):
 
     return chat_completion.choices[0].message.content
 
-#Interactive UI via Gradio
 import gradio as gr
 
 with gr.Blocks(title="💰 Personal Finance Assistant") as demo:
@@ -295,11 +283,11 @@ with gr.Blocks(title="💰 Personal Finance Assistant") as demo:
     """)
 
     gr.Markdown("## 💸 FinanceGenie AI")
-    gr.Markdown("Upload your PhonePe Transaction history to get financial insights and preview your transactions.")
+    gr.Markdown("Upload your UPI Transaction history to get financial insights and preview your transactions.")
     # ✅ PDF upload instructions
 
     with gr.Row():
-        file_input = gr.File(label="📂 Please upload your PhonePe PDF file (max size: 200 MB)", file_types=[".pdf"])
+        file_input = gr.File(label="📂 Please upload your Paytm/PhonePe PDF file (max size: 200 MB)", file_types=[".pdf"])
 
     with gr.Row():
         analyze_button = gr.Button("🔍 Analyze with AI")
@@ -315,7 +303,7 @@ with gr.Blocks(title="💰 Personal Finance Assistant") as demo:
     )
 
     transactions_table = gr.Dataframe(
-        headers=["Date", "Time", "Receiver", "Amount (₹)", "Type", "Transaction Count", "Category"],
+        headers=["Date", "Time", "Receiver", "Amount (₹)", "Type", "Category"],
         label="🧾 Extracted Transactions",
         wrap=True,
         visible=False,
